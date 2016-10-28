@@ -1,2 +1,3 @@
-# wamp-servos
-Drive servos online &amp; real-time using WAMP
+# WAMP Servos
+
+Drive servos online &amp; real-time using WAMP.

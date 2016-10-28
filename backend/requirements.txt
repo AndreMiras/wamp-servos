@@ -1,0 +1,5 @@
+pyserial==3.2.1
+autobahn==0.16.0
+Twisted==16.4.1
+pyOpenSSL==16.2.0
+service-identity==16.0.0

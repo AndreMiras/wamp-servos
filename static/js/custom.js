@@ -44,21 +44,26 @@ function rpc_servo_move(session, servo_num, servo_pos, servo_speed)
     );
 }
 
+function on_slide_change(event, ui)
+{
+  var servo_num = SERVO_NUM;
+  var servo_pos = ui.value;
+  var servo_speed = SERVO_SPEED;
+  // console.log("slide: " + servo_pos);
+  rpc_servo_move(SESSION, servo_num, servo_pos, servo_speed);
+}
+
 /**
  * Binds slider value (change event) with the rpc_servo_move().
  */
 function bind_slider()
 {
-  var slider_elem = $("input.slider");
+  var slider_elem = $("div.slider");
   var options = {
+    "min": 500,
+    "max": 2500,
+    slide: on_slide_change,
+    change: on_slide_change
   };
   slider_elem.slider(options);
-
-  slider_elem.on("change", function(slideEvt) {
-    var servo_num = SERVO_NUM;
-    var servo_pos = slideEvt.value.newValue;
-    var servo_speed = SERVO_SPEED;
-    // console.log("slide: " + servo_pos);
-    rpc_servo_move(SESSION, servo_num, servo_pos, servo_speed);
-  });
 }

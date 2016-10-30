@@ -65,5 +65,8 @@ function bind_slider()
     slide: on_slide_change,
     change: on_slide_change
   };
+  // touch device support
+  // http://stackoverflow.com/a/9533878/185510
+  $('.ui-slider-handle').draggable();
   slider_elem.slider(options);
 }
